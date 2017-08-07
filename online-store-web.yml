@@ -38,20 +38,20 @@ zuul:
   routes:
     edge-service:
       path: /api/**
-      url: http://localhost:9999
+      url: http://edge-service:9999
     auth-service:
       path: /user/**
-      url: http://localhost:8181/uaa/user
+      url: http://user-service:8181/uaa/user
     user-service:
       path: /users/**
 security:
   enable-csrf: false
   oauth2:
     resource:
-      userInfoUri: http://localhost:8181/uaa/user
+      userInfoUri: http://user-service:8181/uaa/user
     client:
-      accessTokenUri: http://localhost:8181/uaa/oauth/token
-      userAuthorizationUri: http://localhost:8181/uaa/oauth/authorize
+      accessTokenUri: http://user-service:8181/uaa/oauth/token
+      userAuthorizationUri: http://user-service:8181/uaa/oauth/authorize
       clientId: acme
       clientSecret: acmesecret
 eureka:
@@ -73,20 +73,20 @@ zuul:
   routes:
     edge-service:
       path: /api/**
-      url: http://0.0.0.0:9999
+      url: http://edge-service:9999
     auth-service:
       path: /user/**
-      url: http://0.0.0.0:8181/uaa/user
+      url: http://user-service:8181/uaa/user
     user-service:
       path: /users/**
 security:
   enable-csrf: false
   oauth2:
     resource:
-      userInfoUri: http://0.0.0.0:8181/uaa/user
+      userInfoUri: http://user-service:8181/uaa/user
     client:
-      accessTokenUri: http://0.0.0.0:8181/uaa/oauth/token
-      userAuthorizationUri: http://0.0.0.0:8181/uaa/oauth/authorize
+      accessTokenUri: http://user-service:8181/uaa/oauth/token
+      userAuthorizationUri: http://user-service:8181/uaa/oauth/authorize
       clientId: acme
       clientSecret: acmesecret
 eureka:
